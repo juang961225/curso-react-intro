@@ -5,16 +5,26 @@ import { TodoItem } from "./TodoItem/TodoItem";
 import { CreateTodoButton } from "./CreateButton/createTodoButton";
 import React from "react";
 
-const defaultTodos = [
-    { text: "cute onion", completed: true },
-    { text: "study react.js", completed: false },
-    { text: "go to the bathroom", completed: false },
-    { text: "work in my project", completed: true },
-    { text: "Winner in my life", completed: true },
-];
+// const defaultTodos = [
+//     { text: "cute onion", completed: true },
+//     { text: "study react.js", completed: false },
+//     { text: "go to the bathroom", completed: false },
+//     { text: "work in my project", completed: true },
+//     { text: "Winner in my life", completed: true },
+// ];
+
+// localStorage.setItem("TODOs_v1", defaultTodos);
+// localStorage.removeItem("TODOs_v1");
 
 function App() {
-    const [todos, setTodos] = React.useState(defaultTodos);
+
+    function useLocalStorage () {
+        
+    }
+    const localStorageTodos = localStorage.getItem("TODOs_v1");
+    let parsedTodos = JSON.parse(localStorageTodos);   
+
+    const [todos, setTodos] = React.useState(parsedTodos);
     const [searchValue, setSearchValue] = React.useState("");
 
     const completedTodo = todos.filter((todo) => !!todo.completed).length;

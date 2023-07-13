@@ -1,19 +1,19 @@
-import { CompleteIcon } from "./CompleteIcon";
-import { DeleteIcon } from "./DeleteIcon";
+import { FaCheckCircle } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
+
 import "./TodoItem.css";
 
 function TodoItem(props) {
     return (
         <li className="TodoItem">
             {
-                // <CompleteIcon/>
                 <span
                     className={`Icon Icon-check ${
                         props.completed && "Icon-check--active"
                     }`}
                     onClick={props.onComplete}
                 >
-                    V
+                    <FaCheckCircle />
                 </span>
             }
             <p
@@ -23,10 +23,9 @@ function TodoItem(props) {
             >
                 {props.text}
             </p>
-            {/* <DeleteIcon /> */}
             {
                 <span className="Icon Icon-delete" onClick={props.onDelete}>
-                    X
+                    <MdDelete />
                 </span>
             }
         </li>
